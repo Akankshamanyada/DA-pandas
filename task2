@@ -1,0 +1,42 @@
+import pandas as pd
+
+# Sample student grades data
+data = {
+    'Student ID': [1, 2, 3, 4, 5],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'Math': [85, 90, 78, 67, 92],
+    'Science': [75, 80, 85, 70, 88],
+    'English': [80, 85, 90, 72, 94]
+}
+
+# Create a DataFrame from the data
+df = pd.DataFrame(data)
+
+# Display the DataFrame
+print("Original Data:")
+print(df)
+
+# Summary statistics
+print("\nSummary Statistics:")
+print(df.describe())
+
+# Mean grades for each subject
+print("\nMean Grades:")
+print(df[['Math', 'Science', 'English']].mean())
+
+# Median grades for each subject
+print("\nMedian Grades:")
+print(df[['Math', 'Science', 'English']].median())
+
+# Maximum grade in each subject
+print("\nMaximum Grades:")
+print(df[['Math', 'Science', 'English']].max())
+
+# Minimum grade in each subject
+print("\nMinimum Grades:")
+print(df[['Math', 'Science', 'English']].min())
+
+# Total grades for each student
+df['Total'] = df[['Math', 'Science', 'English']].sum(axis=1)
+print("\nTotal Grades:")
+print(df[['Name', 'Total']])
